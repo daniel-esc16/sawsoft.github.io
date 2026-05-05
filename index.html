@@ -3,20 +3,670 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título de tu Página</title>
-    <!-- Aquí puedes enlazar tus archivos CSS -->
+    <meta name="description" content="Sawsoft – Aplicación Java Swing para la gestión integral de un taller mecánico: clientes, vehículos, empleados, productos, pagos e informes.">
+    <meta name="theme-color" content="#0b1020">
+    <title>Sawsoft · Gestión de Taller — Aplicación Java Swing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Mi Sitio Web</h1>
-    </header>
-    
-    <main>
-        <p>Este es el cuerpo principal de la plantilla.</p>
-    </main>
 
-    <footer>
-        <p>&copy; 2024 Mi Empresa</p>
-    </footer>
+<!-- ============== NAV ============== -->
+<header class="nav">
+    <div class="container nav-inner">
+        <a href="#top" class="brand">
+            <span class="brand-mark">S</span>
+            <span>Sawsoft · Gestión de Taller</span>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+        <nav class="nav-links">
+            <a href="#overview">Visión general</a>
+            <a href="#stack">Tecnologías</a>
+            <a href="#architecture">Arquitectura</a>
+            <a href="#modules">Módulos</a>
+            <a href="#features">Funcionalidades</a>
+            <a href="#schema">Modelo de datos</a>
+            <a href="#config">Instalación</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="top">
+    <div class="container hero-grid">
+        <div>
+            <span class="eyebrow">Java · Swing · MySQL</span>
+            <h1>Gestión integral de tu taller mecánico, en una sola aplicación de escritorio.</h1>
+            <p class="lead">
+                <strong>proyecto</strong> es una aplicación Java Swing que centraliza la operativa de un
+                taller: clientes, vehículos, empleados, stock, pagos con sub-pagos jerárquicos
+                e informes en PDF — todo respaldado por una base de datos MySQL y autenticación
+                con hash + salt.
+            </p>
+
+            <div class="cta-row">
+                <a href="#modules" class="btn btn-primary">Explorar módulos</a>
+                <a href="#config" class="btn btn-ghost">Cómo instalarlo</a>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat">
+                    <div class="num">5</div>
+                    <div class="lbl">Entidades de negocio</div>
+                </div>
+                <div class="stat">
+                    <div class="num">25+</div>
+                    <div class="lbl">Diálogos y vistas</div>
+                </div>
+                <div class="stat">
+                    <div class="num">2</div>
+                    <div class="lbl">Roles &amp; temas</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal">
+            <div class="mock-window" aria-hidden="true">
+                <div class="mock-titlebar">
+                    <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                    <span class="mock-title">JFramePrincipal — Bienvenido, Ana</span>
+                </div>
+                <div class="mock-menubar">
+                    <span>Empleados</span>
+                    <span>Clientes</span>
+                    <span>Vehículos</span>
+                    <span>Productos</span>
+                    <span>Pagos</span>
+                    <span>Tema</span>
+                </div>
+                <div class="mock-table">
+                    <div class="head">
+                        <div>Tipo</div><div>Concepto</div><div>Fecha</div><div>Importe</div><div>Método</div>
+                    </div>
+                    <div class="row"><div>ENTRADA</div><div>VEHICULO</div><div>02/05/26</div><div>540,00 €</div><div>TARJETA</div></div>
+                    <div class="row sub"><div>↳ Mano de obra</div><div>VEHICULO</div><div>02/05/26</div><div>200,00 €</div><div>—</div></div>
+                    <div class="row sub sub-last"><div>↳ Repuestos</div><div>STOCK</div><div>02/05/26</div><div>340,00 €</div><div>—</div></div>
+                    <div class="row"><div>SALIDA</div><div>OTRO</div><div>03/05/26</div><div>120,00 €</div><div>EFECTIVO</div></div>
+                    <div class="row"><div>ENTRADA</div><div>STOCK</div><div>04/05/26</div><div>89,90 €</div><div>TARJETA</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== OVERVIEW ============== -->
+<section id="overview">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">¿Qué es?</span>
+            <h2>Una app de escritorio pensada para el día a día del taller</h2>
+            <p class="subhead">
+                Construida con Java Swing y patrón DAO sobre MySQL, sigue un flujo de trabajo
+                cómodo: el operario inicia sesión y puede dar de alta clientes, registrar la
+                entrada de un vehículo, gestionar productos en stock, cobrar reparaciones
+                con desglose de subpagos y emitir facturas en PDF con JasperReports.
+            </p>
+        </div>
+
+        <div class="feat-grid reveal">
+            <div class="feat">
+                <div class="ic-feat">★</div>
+                <h4>Multi-rol</h4>
+                <p>Distinción <em>JEFE</em> / <em>EMPLEADO</em> con permisos diferenciados a nivel de menú.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">⌘</div>
+                <h4>Atajos de teclado</h4>
+                <p>Cada acción del menú dispone de su propio acelerador <code>Alt + tecla</code>.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">◐</div>
+                <h4>Tema claro / oscuro</h4>
+                <p>Switch en caliente entre <code>FlatLightLaf</code> y <code>FlatDarculaLaf</code>.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">⇄</div>
+                <h4>Importar &amp; eliminar masivo</h4>
+                <p>Carga y borrado de datos desde ficheros JSON o XML con transacciones atómicas.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">∑</div>
+                <h4>Pagos jerárquicos</h4>
+                <p>Un pago “padre” agrupa subpagos (mano de obra, repuestos…) sin contar dos veces.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">⎙</div>
+                <h4>Informes PDF</h4>
+                <p>Plantillas Jasper (<code>Factura.jasper</code>, <code>AllPagos.jasper</code>) listas para imprimir.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">⌕</div>
+                <h4>Autocompletado</h4>
+                <p>Popup de sugerencias para DNI, matrículas y productos vía <code>PopupSugerencias</code>.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">🔒</div>
+                <h4>Hash con salt</h4>
+                <p>Contraseñas SHA-512 con salt aleatoria y migración perezosa desde hashes antiguos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== TECH STACK ============== -->
+<section id="stack" style="background: linear-gradient(180deg, transparent, rgba(255,255,255,.02), transparent);">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">Stack tecnológico</span>
+            <h2>Las piezas que mueven Sawsoft</h2>
+            <p class="subhead">Java moderno (records, lambdas, switch expressions) sobre librerías probadas en producción.</p>
+        </div>
+
+        <div class="tech-grid reveal">
+            <div class="tech-card">
+                <div class="ic">☕</div>
+                <h4>Java + Swing</h4>
+                <p>UI de escritorio basada en <code>JFrame</code> y <code>JDialog</code> con <code>GroupLayout</code>.</p>
+            </div>
+            <div class="tech-card">
+                <div class="ic">🗄️</div>
+                <h4>MySQL · JDBC</h4>
+                <p>Conector <code>com.mysql.cj.jdbc.Driver</code>, transacciones manuales con commit/rollback.</p>
+            </div>
+            <div class="tech-card">
+                <div class="ic">🎨</div>
+                <h4>FlatLaf</h4>
+                <p><code>FlatLightLaf</code> y <code>FlatDarculaLaf</code> para un look &amp; feel moderno.</p>
+            </div>
+            <div class="tech-card">
+                <div class="ic">{ }</div>
+                <h4>Gson 2.11</h4>
+                <p>Parseo de JSON para el importador y eliminador masivo de datos de prueba.</p>
+            </div>
+            <div class="tech-card">
+                <div class="ic">📄</div>
+                <h4>JasperReports</h4>
+                <p>Generación de facturas e informes PDF con <code>JasperFillManager</code> + <code>JasperViewer</code>.</p>
+            </div>
+            <div class="tech-card">
+                <div class="ic">📦</div>
+                <h4>Apache Ant</h4>
+                <p>Build clásico de NetBeans (<code>build.xml</code>, <code>nbproject/</code>, <code>manifest.mf</code>).</p>
+            </div>
+            <div class="tech-card">
+                <div class="ic">🔑</div>
+                <h4>java.security</h4>
+                <p><code>MessageDigest</code> SHA-512 + <code>SecureRandom</code> para salting de contraseñas.</p>
+            </div>
+            <div class="tech-card">
+                <div class="ic">&lt;/&gt;</div>
+                <h4>JAXP DOM</h4>
+                <p>Parsing XML defensivo (<code>disallow-doctype-decl</code>) en el importador.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== ARCHITECTURE ============== -->
+<section id="architecture">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">Arquitectura</span>
+            <h2>Capas claras: modelo, acceso a datos y presentación</h2>
+            <p class="subhead">
+                Cada entidad del dominio tiene su <em>POJO</em> en <code>clases/</code>, su <em>DAO</em>
+                <code>*AccesoBD.java</code> y sus diálogos Swing en un paquete dedicado.
+            </p>
+        </div>
+
+        <div class="arch-grid">
+            <div class="arch-block reveal">
+                <h3>Capas de la aplicación</h3>
+                <div class="layer">
+                    <span class="pill">UI</span>
+                    <strong>Ventanas y diálogos</strong>
+                    <span class="desc"><code>JFramePrincipal</code>, <code>JDialog*</code></span>
+                </div>
+                <div class="layer">
+                    <span class="pill">DAO</span>
+                    <strong>Acceso a base de datos</strong>
+                    <span class="desc"><code>*AccesoBD.java</code></span>
+                </div>
+                <div class="layer">
+                    <span class="pill">DOMAIN</span>
+                    <strong>Modelos de negocio</strong>
+                    <span class="desc"><code>Cliente</code>, <code>Vehículo</code>, <code>Pago</code>...</span>
+                </div>
+                <div class="layer">
+                    <span class="pill">UTIL</span>
+                    <strong>Servicios transversales</strong>
+                    <span class="desc"><code>Hash</code>, <code>ConexionBD</code>, <code>Importador</code>, <code>Utiles</code></span>
+                </div>
+                <div class="layer">
+                    <span class="pill">DB</span>
+                    <strong>MySQL — esquema <code>taller</code></strong>
+                    <span class="desc">7 tablas + 3 de unión</span>
+                </div>
+            </div>
+
+            <div class="arch-block reveal">
+                <h3>Estructura de paquetes</h3>
+                <div class="tree">
+<span class="dir">proyecto/</span>
+├── <span class="file">build.xml</span>            <span class="cm"># Apache Ant</span>
+├── <span class="file">db.properties.example</span> <span class="cm"># Plantilla de configuración</span>
+├── <span class="file">datos_prueba.json</span>    <span class="cm"># Dataset de prueba</span>
+├── <span class="dir">lib/</span> <span class="cm"># Gson 2.11.0</span>
+├── <span class="dir">informes/</span>
+│   ├── <span class="file">Factura.jasper</span>
+│   └── <span class="file">AllPagos.jasper</span>
+└── <span class="dir">src/</span>
+    ├── <span class="dir">clases/</span>            <span class="cm"># Modelo + utilidades</span>
+    │   ├── Cliente, Empleado, Vehiculo
+    │   ├── Pago, Producto
+    │   ├── ConexionBD, Hash
+    │   ├── Importador, Utiles
+    │   └── PopupSugerencias
+    ├── <span class="dir">clientes/</span>          <span class="cm"># DAO + JDialogs</span>
+    ├── <span class="dir">empleados/</span>
+    ├── <span class="dir">vehiculos/</span>
+    ├── <span class="dir">productos/</span>
+    ├── <span class="dir">pagos/</span>             <span class="cm"># incl. JDialogInforme</span>
+    ├── <span class="dir">resources/</span>          <span class="cm"># icon.png, image.png</span>
+    └── <span class="dir">ventanas/</span>           <span class="cm"># Login + JFramePrincipal</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== MODULES ============== -->
+<section id="modules">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">Módulos funcionales</span>
+            <h2>Cinco verticales, una sola aplicación</h2>
+            <p class="subhead">Cada vertical sigue el mismo patrón: <em>Crear</em>, <em>Modificar</em>, <em>Eliminar</em>, <em>Mostrar</em>.</p>
+        </div>
+
+        <div class="module-grid">
+            <article class="module reveal">
+                <div class="ic-big">👥</div>
+                <h3>Empleados</h3>
+                <div class="role">Solo accesible para <strong>JEFE</strong></div>
+                <ul>
+                    <li>Alta con rol (JEFE / EMPLEADO)</li>
+                    <li>Modificación y baja por <em>usuario</em></li>
+                    <li>Listado con último login formateado</li>
+                    <li>Hash automático de contraseña al crearse</li>
+                    <li>Autocompletado de usuarios para edición</li>
+                </ul>
+            </article>
+
+            <article class="module reveal">
+                <div class="ic-big">🧑‍🤝‍🧑</div>
+                <h3>Clientes</h3>
+                <div class="role">Accesible para todos los empleados</div>
+                <ul>
+                    <li>Datos: DNI, teléfono, email, apellidos</li>
+                    <li>Búsqueda y modificación por DNI</li>
+                    <li>Autocompletado de DNI con popup</li>
+                    <li>Capitalización automática (<code>toTitulo</code>)</li>
+                </ul>
+            </article>
+
+            <article class="module reveal">
+                <div class="ic-big">🚗</div>
+                <h3>Vehículos</h3>
+                <div class="role">Vinculados a un cliente (FK)</div>
+                <ul>
+                    <li>Estados: <code>PENDIENTE</code>, <code>REPARANDO</code>, <code>LISTO</code></li>
+                    <li>Matrícula, VIN, marca, modelo, año, km</li>
+                    <li>Coste de reparación y descripción</li>
+                    <li><code>JOIN</code> con cliente para evitar query N+1</li>
+                </ul>
+            </article>
+
+            <article class="module reveal">
+                <div class="ic-big">📦</div>
+                <h3>Productos</h3>
+                <div class="role">Inventario del taller</div>
+                <ul>
+                    <li>Categorías: FLUIDOS, PIEZAS, NEUMÁTICOS, CONSUMIBLES, ACCESORIOS, RECAMBIOS, OTROS</li>
+                    <li>Precio de compra y de venta</li>
+                    <li>Gestión de stock incremental (<code>cambiarStock</code>)</li>
+                    <li>Diálogo unificado “Gestionar” con sugerencias</li>
+                </ul>
+            </article>
+
+            <article class="module reveal">
+                <div class="ic-big">💳</div>
+                <h3>Pagos &amp; Informes</h3>
+                <div class="role">Núcleo financiero</div>
+                <ul>
+                    <li>Tipo ENTRADA / SALIDA, método TARJETA / EFECTIVO / OTRO</li>
+                    <li>Concepto VEHÍCULO / STOCK / OTRO con UI dinámica</li>
+                    <li>Sub-pagos agrupados bajo un pago padre</li>
+                    <li>Balance global excluyendo agrupadores</li>
+                    <li>Informe PDF (Jasper) por rango de fechas</li>
+                </ul>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ============== AUTH & ROLES ============== -->
+<section id="auth" style="background: linear-gradient(180deg, transparent, rgba(255,255,255,.02), transparent);">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">Autenticación &amp; permisos</span>
+            <h2>Inicio de sesión seguro y separación de roles</h2>
+            <p class="subhead">
+                El login se gestiona en <code>JDialogLogin</code>. La verificación se hace contra
+                <code>empleado.contrasenya</code> usando <code>Hash.verificarConSalt</code>; si la
+                contraseña almacenada todavía está sin salt, se valida con SHA-512 plano y se
+                <strong>migra automáticamente</strong> al nuevo formato.
+            </p>
+        </div>
+
+        <div class="roles">
+            <div class="role-card jefe reveal">
+                <h3>JEFE <span class="badge">acceso total</span></h3>
+                <p>Puede operar sobre cualquier entidad del sistema, incluida la gestión del personal y la importación masiva de datos.</p>
+                <ul>
+                    <li>Crear, modificar y eliminar empleados</li>
+                    <li>Crear, modificar y eliminar clientes</li>
+                    <li>Importar / eliminar datos de prueba (JSON · XML)</li>
+                    <li>Generar informes en PDF</li>
+                    <li>Todo lo del rol EMPLEADO</li>
+                </ul>
+            </div>
+            <div class="role-card emp reveal">
+                <h3>EMPLEADO <span class="badge">operativa diaria</span></h3>
+                <p>Foco en lo que ocurre en planta: clientes nuevos, vehículos que entran, productos vendidos y cobros del día.</p>
+                <ul>
+                    <li>Crear y modificar clientes</li>
+                    <li>Crear, modificar y eliminar vehículos</li>
+                    <li>Gestionar productos y stock</li>
+                    <li>Registrar pagos y subpagos</li>
+                    <li class="no">No puede crear / borrar empleados</li>
+                    <li class="no">No puede importar datos masivamente</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow reveal" style="margin-top: 32px;">
+            <div class="step"><div class="n">1</div><h5>Login</h5><p>Usuario + contraseña en <code>JDialogLogin</code>.</p></div>
+            <div class="step"><div class="n">2</div><h5>Verificar salt</h5><p>SHA-512 del salt + password.</p></div>
+            <div class="step"><div class="n">3</div><h5>Migrar legacy</h5><p>Si no hay salt, re-hashea.</p></div>
+            <div class="step"><div class="n">4</div><h5>Sello de login</h5><p><code>fechaUltimoLogin = NOW()</code>.</p></div>
+            <div class="step"><div class="n">5</div><h5>Carga UI</h5><p>Abre <code>JFramePrincipal(empleado)</code>.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== SCHEMA ============== -->
+<section id="schema">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">Modelo de datos</span>
+            <h2>Esquema de la base <code>taller</code></h2>
+            <p class="subhead">Inferido a partir de las consultas del DAO y del importador.</p>
+        </div>
+
+        <div class="schema-grid reveal">
+            <div class="tbl">
+                <div class="tbl-h">empleado <span class="pk">PK · empleadoId</span></div>
+                <ul>
+                    <li>nombre <span class="typ">VARCHAR</span></li>
+                    <li>apellido1 / apellido2 <span class="typ">VARCHAR</span></li>
+                    <li>usuario <span class="typ">VARCHAR · UNIQUE</span></li>
+                    <li>contrasenya <span class="typ">VARCHAR (salt:hash)</span></li>
+                    <li>rol <span class="typ">JEFE / EMPLEADO</span></li>
+                    <li>fechaUltimoLogin <span class="typ">TIMESTAMP</span></li>
+                </ul>
+            </div>
+
+            <div class="tbl">
+                <div class="tbl-h">cliente <span class="pk">PK · clienteId</span></div>
+                <ul>
+                    <li>nombre / apellido1 / apellido2 <span class="typ">VARCHAR</span></li>
+                    <li>dni <span class="typ">VARCHAR · UNIQUE</span></li>
+                    <li>telefono <span class="typ">VARCHAR</span></li>
+                    <li>email <span class="typ">VARCHAR</span></li>
+                </ul>
+            </div>
+
+            <div class="tbl">
+                <div class="tbl-h">vehiculo <span class="pk">PK · vehiculoId</span></div>
+                <ul>
+                    <li>matricula / vin <span class="typ">VARCHAR</span></li>
+                    <li>marca / modelo <span class="typ">VARCHAR</span></li>
+                    <li>anyo / kilometraje <span class="typ">INT</span></li>
+                    <li>fechaEntrada / fechaSalida <span class="typ">TIMESTAMP</span></li>
+                    <li>estado <span class="typ">ENUM-like</span></li>
+                    <li>costeReparacion <span class="typ">DECIMAL</span></li>
+                    <li>clienteId <span class="typ">FK → cliente</span></li>
+                </ul>
+            </div>
+
+            <div class="tbl">
+                <div class="tbl-h">producto <span class="pk">PK · productoId</span></div>
+                <ul>
+                    <li>nombre <span class="typ">VARCHAR</span></li>
+                    <li>stock <span class="typ">INT</span></li>
+                    <li>precioCompra / precioVenta <span class="typ">DECIMAL</span></li>
+                    <li>categoria <span class="typ">VARCHAR</span></li>
+                </ul>
+            </div>
+
+            <div class="tbl">
+                <div class="tbl-h">pago <span class="pk">PK · pagoId</span></div>
+                <ul>
+                    <li>tipo <span class="typ">ENTRADA / SALIDA</span></li>
+                    <li>concepto <span class="typ">VEHICULO / STOCK / OTRO</span></li>
+                    <li>fecha <span class="typ">TIMESTAMP</span></li>
+                    <li>importe <span class="typ">DECIMAL</span></li>
+                    <li>metodo <span class="typ">TARJETA / EFECTIVO / OTRO</span></li>
+                    <li>dniCliente / userEmpleado <span class="typ">VARCHAR</span></li>
+                    <li>pagoPadreId <span class="typ">FK → pago · NULLABLE</span></li>
+                </ul>
+            </div>
+
+            <div class="tbl">
+                <div class="tbl-h">tablas de unión</div>
+                <ul>
+                    <li>vehiculoempleado <span class="typ">vehiculoId × empleadoId</span></li>
+                    <li>clienteproducto <span class="typ">clienteId × productoId</span></li>
+                    <li>empleadoproducto <span class="typ">empleadoId × productoId</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== IMPORT/EXPORT ============== -->
+<section id="data" style="background: linear-gradient(180deg, transparent, rgba(255,255,255,.02), transparent);">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">Importación &amp; eliminación masiva</span>
+            <h2>Carga el taller entero desde un solo archivo</h2>
+            <p class="subhead">
+                La clase <code>Importador</code> acepta archivos <strong>JSON</strong> o <strong>XML</strong>
+                con secciones <code>empleados</code>, <code>clientes</code>, <code>productos</code>,
+                <code>vehiculos</code> y <code>pagos</code>. Cada operación se ejecuta dentro de una
+                transacción: si algo falla, <em>rollback</em> de todo.
+            </p>
+        </div>
+
+        <div class="arch-grid">
+            <div class="code-card reveal">
+                <header>📄 datos_prueba.json (extracto)</header>
+                <pre><span class="kw">{</span>
+  <span class="key">"empleados"</span>: [
+    <span class="kw">{</span> <span class="key">"nombre"</span>: <span class="str">"Ana"</span>, <span class="key">"usuario"</span>: <span class="str">"ana"</span>,
+      <span class="key">"contrasenya"</span>: <span class="str">"1234"</span>, <span class="key">"rol"</span>: <span class="str">"JEFE"</span> <span class="kw">}</span>
+  ],
+  <span class="key">"clientes"</span>: [
+    <span class="kw">{</span> <span class="key">"dni"</span>: <span class="str">"12345678A"</span>,
+      <span class="key">"nombre"</span>: <span class="str">"Pedro"</span>,
+      <span class="key">"apellido1"</span>: <span class="str">"García"</span> <span class="kw">}</span>
+  ],
+  <span class="key">"vehiculos"</span>: [
+    <span class="kw">{</span> <span class="key">"matricula"</span>: <span class="str">"1234ABC"</span>,
+      <span class="key">"marca"</span>: <span class="str">"Seat"</span>,
+      <span class="key">"dniCliente"</span>: <span class="str">"12345678A"</span>,
+      <span class="key">"estado"</span>: <span class="str">"PENDIENTE"</span> <span class="kw">}</span>
+  ],
+  <span class="key">"productos"</span>: [...],
+  <span class="key">"pagos"</span>: [...]
+<span class="kw">}</span></pre>
+            </div>
+
+            <div class="arch-block reveal">
+                <h3>Cómo funciona el <code>Importador</code></h3>
+                <div class="layer"><span class="pill">1</span><strong>Detecta el formato</strong><span class="desc">.json → Gson · .xml → JAXP DOM</span></div>
+                <div class="layer"><span class="pill">2</span><strong>Inserta en orden</strong><span class="desc">empleados → clientes → productos → vehiculos → pagos</span></div>
+                <div class="layer"><span class="pill">3</span><strong>Resuelve FKs</strong><span class="desc">cliente.dni → clienteId al insertar vehículo</span></div>
+                <div class="layer"><span class="pill">4</span><strong>Hashea passwords</strong><span class="desc">Aplica salt automáticamente a empleados</span></div>
+                <div class="layer"><span class="pill">5</span><strong>Eliminación inversa</strong><span class="desc">Borra pagos → uniones → vehículos → productos → clientes → empleados</span></div>
+                <div class="layer"><span class="pill">6</span><strong>Transaccional</strong><span class="desc">commit final · rollback si algo falla</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== CONFIG ============== -->
+<section id="config">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">Instalación &amp; configuración</span>
+            <h2>Cuatro pasos para tener Sawsoft corriendo</h2>
+        </div>
+
+        <div class="flow reveal">
+            <div class="step"><div class="n">1</div><h5>MySQL</h5><p>Instala MySQL 8 y crea la base <code>taller</code>.</p></div>
+            <div class="step"><div class="n">2</div><h5>Configura</h5><p>Copia <code>db.properties.example</code> → <code>db.properties</code>.</p></div>
+            <div class="step"><div class="n">3</div><h5>Compila</h5><p><code>ant clean jar</code> con NetBeans / CLI.</p></div>
+            <div class="step"><div class="n">4</div><h5>Ejecuta</h5><p><code>java -jar dist/proyecto.jar</code>.</p></div>
+            <div class="step"><div class="n">5</div><h5>Importa</h5><p>Menú Ayuda → <em>Importar datos de prueba</em>.</p></div>
+        </div>
+
+        <div class="arch-grid" style="margin-top: 30px;">
+            <div class="code-card reveal">
+                <header>⚙️ db.properties</header>
+                <pre><span class="com"># Configuración de la conexión MySQL</span>
+<span class="key">host</span>=<span class="val">127.0.0.1</span>
+<span class="key">port</span>=<span class="val">3306</span>
+<span class="key">database</span>=<span class="val">taller</span>
+<span class="key">user</span>=<span class="val">tu_usuario</span>
+<span class="key">password</span>=<span class="val">tu_password</span></pre>
+            </div>
+
+            <div class="code-card reveal">
+                <header>🔐 Hash con salt — extracto de Hash.java</header>
+                <pre><span class="kw">public</span> String <span class="key">hashConSalt</span>(String password) <span class="kw">throws</span> Exception {
+  byte[] saltBytes = <span class="kw">new</span> byte[<span class="val">16</span>];
+  <span class="kw">new</span> SecureRandom().nextBytes(saltBytes);
+  String salt = HexFormat.of().formatHex(saltBytes);
+
+  MessageDigest md = MessageDigest.getInstance(<span class="str">"SHA-512"</span>);
+  md.update((salt + password).getBytes(UTF_8));
+
+  <span class="kw">return</span> salt + <span class="str">":"</span> + HexFormat.of().formatHex(md.digest());
+}</pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== FEATURES TABLES ============== -->
+<section id="features">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">UX</span>
+            <h2>Detalles que se aprecian al usarla</h2>
+        </div>
+
+        <div class="feat-grid reveal">
+            <div class="feat">
+                <div class="ic-feat">⌨</div>
+                <h4>Aceleradores Alt+letra</h4>
+                <p>Crear (Alt+C), Modificar (Alt+M), Eliminar (Alt+E), Mostrar (Alt+R), Tema (Alt+T), Informe (Alt+I).</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">🎨</div>
+                <h4>Tabla con estilo coherente</h4>
+                <p>Cabecera oscura, filas amarillo cálido (<code>#FFF399</code>) y celdas centradas vía <code>Utiles.configurarTabla</code>.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">🪟</div>
+                <h4>Popup de sugerencias</h4>
+                <p><code>JWindow</code> sin foco que sigue al campo de texto y se reposiciona al mover/redimensionar.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">∇</div>
+                <h4>Sub-pagos visualmente agrupados</h4>
+                <p>Renderer custom: las filas “hijas” aparecen en azul claro y se cierran con borde azul oscuro al final del grupo.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">⤴</div>
+                <h4>Refresco contextual</h4>
+                <p>Tras crear/modificar/eliminar, <code>refrescarTabla()</code> recarga solo la vista activa.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">🛡️</div>
+                <h4>SQL parametrizado</h4>
+                <p>Todo el acceso a BD usa <code>PreparedStatement</code>, evitando inyección SQL.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">⚖️</div>
+                <h4>Validación de tipos</h4>
+                <p>Los modelos refuerzan los enums (<code>posiblesEstados</code>, <code>posibleCategoria</code>...) en el constructor.</p>
+            </div>
+            <div class="feat">
+                <div class="ic-feat">🧾</div>
+                <h4>Reportes parametrizables</h4>
+                <p>El informe acepta <code>fechaInicio</code> y <code>fechaFin</code>; sale directo a un <code>JasperViewer</code>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h5>Sawsoft</h5>
+                <p>Aplicación Java Swing para la gestión integral de un taller mecánico.
+                   Construida como proyecto académico DAM2 — autoría <em>DAM2Alu6</em> &amp; <em>DAM2Alu12</em>.</p>
+            </div>
+            <div>
+                <h5>Mapa</h5>
+                <ul>
+                    <li><a href="#overview">Visión general</a></li>
+                    <li><a href="#stack">Tecnologías</a></li>
+                    <li><a href="#architecture">Arquitectura</a></li>
+                    <li><a href="#modules">Módulos</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Recursos</h5>
+                <ul>
+                    <li><a href="#schema">Esquema BD</a></li>
+                    <li><a href="#data">Importación masiva</a></li>
+                    <li><a href="#config">Instalación</a></li>
+                    <li><a href="#features">Detalles UX</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="legal">© <span id="year"></span> Sawsoft · Página estática que documenta el proyecto Java Swing <code>proyecto</code>.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
 </body>
 </html>
