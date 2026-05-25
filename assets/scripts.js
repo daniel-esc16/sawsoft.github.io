@@ -27,17 +27,3 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 // Year in footer
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-// Video tutorial placeholder: hide overlay when the video file is actually loadable
-const tutorialVideo = document.getElementById("tutorialVideo");
-const videoPlaceholder = document.getElementById("videoPlaceholder");
-if (tutorialVideo && videoPlaceholder) {
-    const showPlaceholder = () => videoPlaceholder.classList.remove("hidden");
-    const hidePlaceholder = () => videoPlaceholder.classList.add("hidden");
-
-    tutorialVideo.addEventListener("loadeddata", hidePlaceholder);
-    tutorialVideo.addEventListener("canplay", hidePlaceholder);
-    tutorialVideo.addEventListener("error", showPlaceholder, true);
-    const sourceEl = tutorialVideo.querySelector("source");
-    if (sourceEl) sourceEl.addEventListener("error", showPlaceholder);
-}

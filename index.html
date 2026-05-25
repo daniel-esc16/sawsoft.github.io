@@ -572,20 +572,13 @@
 
         <div class="video-wrap reveal">
             <div class="video-frame">
-                <video
-                    id="tutorialVideo"
-                    controls
-                    preload="metadata"
-                    playsinline
-                    poster="media/videotutorial-poster.jpg">
-                    <source src="media/videotutorial.mp4" type="video/mp4">
-                    Tu navegador no admite la reproducción de vídeo HTML5.
-                </video>
-                <div class="video-placeholder" id="videoPlaceholder">
-                    <div class="vp-icon" aria-hidden="true">▶</div>
-                    <h4>Videotutorial próximamente</h4>
-                    <p>Estamos preparando el vídeo. Vuelve pronto para verlo aquí mismo.</p>
-                </div>
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/PcJGV3MOFnU?rel=0"
+                    title="Videotutorial de Sawsoft"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </div>
