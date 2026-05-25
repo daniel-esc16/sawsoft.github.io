@@ -29,6 +29,7 @@
             <a href="#data">Información que gestiona</a>
             <a href="#reports">Informes</a>
             <a href="#setup">Puesta en marcha</a>
+            <a href="#download" class="nav-cta">Descargar</a>
         </nav>
     </div>
 </header>
@@ -48,8 +49,8 @@
             </p>
 
             <div class="cta-row">
-                <a href="#modules" class="btn btn-primary">Explorar módulos</a>
-                <a href="#workflow" class="btn btn-ghost">Ver flujo de trabajo</a>
+                <a href="#download" class="btn btn-primary">Descargar Sawsoft</a>
+                <a href="#tutorial" class="btn btn-ghost">Ver videotutorial</a>
             </div>
 
             <div class="stat-row">
@@ -507,6 +508,89 @@
     </div>
 </section>
 
+<!-- ============== DOWNLOAD ============== -->
+<section id="download" style="background: linear-gradient(180deg, transparent, rgba(255,255,255,.02), transparent);">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">Descarga</span>
+            <h2>Obtén Sawsoft para tu equipo</h2>
+            <p class="subhead">
+                El instalador para Windows incluye todo lo necesario: la aplicación,
+                el entorno Java de ejecución y la base de datos MariaDB que se configura
+                automáticamente la primera vez que se instala.
+            </p>
+        </div>
+
+        <div class="download-card reveal">
+            <div class="dl-icon" aria-hidden="true">⬇</div>
+            <div class="dl-info">
+                <h3>Sawsoft <span class="dl-version">v1.0.0</span></h3>
+                <p>Instalador para Windows · 67,4 MB · Incluye JRE y MariaDB embebidos</p>
+                <ul class="dl-meta">
+                    <li><strong>SO compatible</strong>Windows 10 / 11 (x64)</li>
+                    <li><strong>Privilegios</strong>Se requiere administrador para la instalación</li>
+                    <li><strong>Servicio</strong>Registra automáticamente <code>SawsoftMariaDB</code></li>
+                </ul>
+            </div>
+            <div class="dl-actions">
+                <a href="downloads/Sawsoft-Setup-1.0.0.exe" class="btn btn-primary" download>
+                    Descargar instalador
+                </a>
+                <a href="#setup" class="btn btn-ghost">Ver pasos de puesta en marcha</a>
+            </div>
+        </div>
+
+        <div class="dl-notes reveal">
+            <div class="dl-note">
+                <h5>Antes de instalar</h5>
+                <p>Cierra cualquier instancia previa de Sawsoft. Si Windows muestra un aviso de SmartScreen, pulsa <em>Más información → Ejecutar de todas formas</em>.</p>
+            </div>
+            <div class="dl-note">
+                <h5>Tras la instalación</h5>
+                <p>La aplicación crea un icono de acceso directo y deja MariaDB lista para usarse. Solo queda crear el primer usuario jefe y empezar a trabajar.</p>
+            </div>
+            <div class="dl-note">
+                <h5>Desinstalar</h5>
+                <p>Desde <em>Panel de control → Programas</em>. El desinstalador detiene el servicio y elimina los archivos de la aplicación.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== VIDEO TUTORIAL ============== -->
+<section id="tutorial">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="tag">Videotutorial</span>
+            <h2>Aprende a usar Sawsoft en unos minutos</h2>
+            <p class="subhead">
+                Un recorrido guiado por las funciones principales: alta de clientes,
+                entrada de vehículos, gestión del inventario, registro de pagos y
+                emisión de informes en PDF.
+            </p>
+        </div>
+
+        <div class="video-wrap reveal">
+            <div class="video-frame">
+                <video
+                    id="tutorialVideo"
+                    controls
+                    preload="metadata"
+                    playsinline
+                    poster="media/videotutorial-poster.jpg">
+                    <source src="media/videotutorial.mp4" type="video/mp4">
+                    Tu navegador no admite la reproducción de vídeo HTML5.
+                </video>
+                <div class="video-placeholder" id="videoPlaceholder">
+                    <div class="vp-icon" aria-hidden="true">▶</div>
+                    <h4>Videotutorial próximamente</h4>
+                    <p>Estamos preparando el vídeo. Vuelve pronto para verlo aquí mismo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ============== FOOTER ============== -->
 <footer>
     <div class="container">
@@ -532,6 +616,8 @@
                     <li><a href="#import">Carga masiva</a></li>
                     <li><a href="#reports">Informes</a></li>
                     <li><a href="#setup">Puesta en marcha</a></li>
+                    <li><a href="#download">Descargar</a></li>
+                    <li><a href="#tutorial">Videotutorial</a></li>
                 </ul>
             </div>
         </div>
